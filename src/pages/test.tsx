@@ -1,6 +1,7 @@
 import { NavRoutingLink } from '../components/common/NavRoutingLink';
 import testIcon from '../assets/test.svg';
 import styled from 'styled-components';
+import { TodoAccordion } from '../components/common/TodoAccordion';
 
 export const Test = () => {
   return (
@@ -24,7 +25,17 @@ export const Test = () => {
 
       <br />
 
-      <h2>Toggle</h2>
+      <h2>Accordion</h2>
+      <TodoAccordion title="이예은" tagList={['기획', '프론트엔드', '백엔드']}>
+        <li>dfsdf</li>
+        <li>dfsdf</li>
+        <li>dfsdf</li>
+      </TodoAccordion>
+      <TodoAccordion title="이예은" tagList={['기획', '프론트엔드', '백엔드']}>
+        <li>dfsdf</li>
+        <li>dfsdf</li>
+        <li>dfsdf</li>
+      </TodoAccordion>
     </Container>
   );
 };
