@@ -13,6 +13,7 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  icon?: string;
 }
 
 // 크기
@@ -40,7 +41,12 @@ const buttonStyles: Record<string, ButtonStyle> = {
     hoverBackgroundColor: '#DDEBFF',
     borderColor: '#5C9EFF',
   },
-  // red main, sub 버튼 추가 예정
+  red: {
+    backgroundColor: '#FFFFFF',
+    textColor: '#FF0000',
+    hoverBackgroundColor: '#FFE9E9',
+    borderColor: '#FF0000',
+  },
   disabled: {
     backgroundColor: '#CCCCCC',
     textColor: '#FFFFFF',
@@ -53,11 +59,10 @@ export const Button = ({
   children,
   onClick,
   disabled = false,
+  icon,
 }: ButtonProps) => {
   const selectedSize = buttonSizes[size];
   const selectedStyle = buttonStyles[style];
-
-  console.log(size, selectedSize);
 
   return (
     <ButtonContainer
@@ -66,6 +71,7 @@ export const Button = ({
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
     >
+      {icon && <Icon src={icon} />}
       {children}
     </ButtonContainer>
   );
@@ -100,4 +106,8 @@ const ButtonContainer = styled.button<{
         ? buttonStyles.disabled.backgroundColor
         : styles.hoverBackgroundColor};
   }
+`;
+
+const Icon = styled.img`
+  margin-right: 8px;
 `;
