@@ -13,7 +13,7 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
 }
 
 // 크기
@@ -71,7 +71,7 @@ export const Button = ({
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
     >
-      {icon && <Icon src={icon} />}
+      {icon && <IconWrapper>{icon}</IconWrapper>}
       {children}
     </ButtonContainer>
   );
@@ -106,8 +106,12 @@ const ButtonContainer = styled.button<{
         ? buttonStyles.disabled.backgroundColor
         : styles.hoverBackgroundColor};
   }
+  padding: 0;
 `;
 
-const Icon = styled.img`
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 8px;
 `;
