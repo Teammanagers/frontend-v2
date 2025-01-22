@@ -143,6 +143,9 @@ const AccordionBodyWrapper = styled.div`
 `;
 
 const AccordionBody = styled.div<{ $isOpen: boolean }>`
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: auto;
   background-color: white;
 `;
