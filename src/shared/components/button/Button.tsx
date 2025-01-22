@@ -66,8 +66,8 @@ export const Button = ({
 
   return (
     <ButtonContainer
-      sizes={selectedSize}
-      styles={selectedStyle}
+      $sizes={selectedSize}
+      $styles={selectedStyle}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
     >
@@ -78,33 +78,33 @@ export const Button = ({
 };
 
 const ButtonContainer = styled.button<{
-  sizes: (typeof buttonSizes)[keyof typeof buttonSizes];
-  styles: (typeof buttonStyles)[keyof typeof buttonStyles];
+  $sizes: (typeof buttonSizes)[keyof typeof buttonSizes];
+  $styles: (typeof buttonStyles)[keyof typeof buttonStyles];
   disabled: boolean;
 }>`
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  width: ${({ sizes }) => sizes.width}px;
-  height: ${({ sizes }) => sizes.height}px;
-  font-size: ${({ sizes }) => sizes.fontSize}px;
+  width: ${({ $sizes }) => $sizes.width}px;
+  height: ${({ $sizes }) => $sizes.height}px;
+  font-size: ${({ $sizes }) => $sizes.fontSize}px;
   border-radius: 4px;
   border: 1px solid
-    ${({ styles, disabled }) =>
-      disabled ? 'transparent' : styles.borderColor || 'transparent'};
-  background: ${({ styles, disabled }) =>
-    disabled ? buttonStyles.disabled.backgroundColor : styles.backgroundColor};
-  color: ${({ styles, disabled }) =>
-    disabled ? buttonStyles.disabled.textColor : styles.textColor};
+    ${({ $styles, disabled }) =>
+      disabled ? 'transparent' : $styles.borderColor || 'transparent'};
+  background: ${({ $styles, disabled }) =>
+    disabled ? buttonStyles.disabled.backgroundColor : $styles.backgroundColor};
+  color: ${({ $styles, disabled }) =>
+    disabled ? buttonStyles.disabled.textColor : $styles.textColor};
 
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
-    background: ${({ styles, disabled }) =>
+    background: ${({ $styles, disabled }) =>
       disabled
         ? buttonStyles.disabled.backgroundColor
-        : styles.hoverBackgroundColor};
+        : $styles.hoverBackgroundColor};
   }
   padding: 0;
 `;

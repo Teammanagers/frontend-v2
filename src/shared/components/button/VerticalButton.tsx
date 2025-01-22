@@ -24,7 +24,11 @@ export const VerticalButton = ({
   const selectedSize = buttonSizes[size];
 
   return (
-    <ButtonContainer sizes={selectedSize} onClick={onClick} disabled={disabled}>
+    <ButtonContainer
+      $sizes={selectedSize}
+      onClick={onClick}
+      disabled={disabled}
+    >
       <IconWrapper>{icon}</IconWrapper>
       {children}
     </ButtonContainer>
@@ -32,7 +36,7 @@ export const VerticalButton = ({
 };
 
 const ButtonContainer = styled.button<{
-  sizes: { width: number; height: number; gap: number };
+  $sizes: { width: number; height: number; gap: number };
   disabled?: boolean;
 }>`
   display: flex;
@@ -46,9 +50,9 @@ const ButtonContainer = styled.button<{
   font-weight: 500;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-  width: ${({ sizes }) => sizes.width}px;
-  height: ${({ sizes }) => sizes.height}px;
-  gap: ${({ sizes }) => sizes.gap}px;
+  width: ${({ $sizes }) => $sizes.width}px;
+  height: ${({ $sizes }) => $sizes.height}px;
+  gap: ${({ $sizes }) => $sizes.gap}px;
   padding: 0;
 
   &:hover {
