@@ -50,9 +50,7 @@ export const Accrodion = ({ children, title, tagList }: AccrodionProps) => {
       </AccordionHeader>
 
       <AccordionBodyWrapper ref={parentRef}>
-        <AccordionBody ref={childRef} $isOpen={isOpen}>
-          {children}
-        </AccordionBody>
+        <AccordionBody ref={childRef}>{children}</AccordionBody>
       </AccordionBodyWrapper>
     </AccordionContainer>
   );
@@ -142,7 +140,7 @@ const AccordionBodyWrapper = styled.div`
   transition: height 0.5s ease;
 `;
 
-const AccordionBody = styled.div<{ $isOpen: boolean }>`
+const AccordionBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
