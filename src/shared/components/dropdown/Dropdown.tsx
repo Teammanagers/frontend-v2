@@ -17,11 +17,12 @@ const Dropdown = ({ children, setIsOpen }: DropdownProps) => {
   return <DropdownContainer ref={dropdownRef}>{children}</DropdownContainer>;
 };
 
-Dropdown.Header = DropdownTrigger;
+Dropdown.Trigger = DropdownTrigger;
 Dropdown.Menu = DropdownMenu;
 
 export { Dropdown };
 
 const DropdownContainer = styled.div`
   position: relative;
+  display: inline-block;
 `;

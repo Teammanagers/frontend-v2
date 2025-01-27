@@ -18,7 +18,7 @@ const Container = styled.div<{ $isOpen: boolean }>`
   transform: translateY(0);
   @keyframes dropdown {
     0% {
-      transform: translateY(-15px);
+      transform: translateY(-5px);
     }
     100% {
       transform: translateY(0);
