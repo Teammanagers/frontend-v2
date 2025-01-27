@@ -1,24 +1,13 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import dropdownMenuIcon from '@/shared/assets/common/dropdown-menu.svg';
-
-type ButtonState = 'menu' | 'alarm' | 'none';
-
-interface TodoProps {
-  children: ReactNode;
-  buttonState: ButtonState;
-}
+import { ButtonState, TodoProps } from './types';
 
 export const Todo = ({ children, buttonState }: TodoProps) => {
-  const renderButton = () => {
-    switch (buttonState) {
-      case 'menu':
-        return <img src={dropdownMenuIcon} alt="dropdown-menu-icon" />;
-      case 'alarm':
-        return <button>깨우기</button>; // 공통 컴포넌트 버튼 추가 예정
-      case 'none':
-        return null;
-    }
+  const buttonComponents: { [key in ButtonState]: ReactNode } = {
+    menu: <img src={dropdownMenuIcon} alt="dropdown-menu-icon" />,
+    alarm: <button>깨우기</button>, // 공통 컴포넌트 버튼 추가 예정
+    none: null,
   };
 
   return (
@@ -29,7 +18,7 @@ export const Todo = ({ children, buttonState }: TodoProps) => {
           <Content>{children}</Content>
         </ContentWrapper>
 
-        {renderButton()}
+        {buttonComponents[buttonState]}
       </InnerWrapper>
     </TodoContainer>
   );
