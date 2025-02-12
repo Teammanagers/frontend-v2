@@ -3,6 +3,15 @@ import chevronIcon from '@/shared/assets/common/rotating-chevron.svg';
 import { AccordionHeaderProps } from './types.ts';
 import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
 
+/**
+ * AccordionHeader 컴포넌트는 아코디언의 헤더를 제공합니다.
+ *
+ * @param {boolean} isOpen - 아코디언의 열림/닫힘 상태.
+ * @param {() => void} onClick - 헤더를 클릭했을 때 호출되는 함수.
+ * @param {string} title - 아코디언의 제목 (예: 팀원 이름)
+ * @param {string[]} tagList - 아코디언의 태그 리스트.
+ */
+
 export const AccordionHeader = ({
   isOpen,
   onClick,
