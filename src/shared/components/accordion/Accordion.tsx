@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { useAccordionToggle } from '@/widgets/accordion/hooks/useAccordionToggle';
 import { AccordionProps } from './types.ts';
 import { AccordionHeader } from './Header.tsx';
 import { AccordionBody } from './Body.tsx';
 import { forwardRef } from 'react';
+import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
 
 /**
  * Accordion 컴포넌트는 아코디언의 구성요소(Header, Body)를 감싸는 Container 컴포넌트입니다.
