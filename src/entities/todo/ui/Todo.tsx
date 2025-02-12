@@ -3,6 +3,13 @@ import styled from 'styled-components';
 import dropdownMenuIcon from '@/shared/assets/common/dropdown-menu.svg';
 import { ButtonState, ITodo } from '../todo.type';
 
+/**
+ * Todo 컴포넌트는 할 일 항목을 렌더링합니다.
+ *
+ * @param {ReactNode} children - 할 일 항목의 내용.
+ * @param {ButtonState} buttonState - 버튼의 상태를 나타내는 값 ('menu', 'alarm', 'none').
+ */
+
 export const Todo = ({ children, buttonState }: ITodo) => {
   const buttonComponents: { [key in ButtonState]: ReactNode } = {
     menu: <img src={dropdownMenuIcon} alt="dropdown-menu-icon" />,
