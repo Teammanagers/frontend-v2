@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import dropdownMenuIcon from '@/shared/assets/common/dropdown-menu.svg';
-import { ButtonState, TodoProps } from './types';
+import { ButtonState, ITodo } from '../todo.type';
 
-export const Todo = ({ children, buttonState }: TodoProps) => {
+export const Todo = ({ children, buttonState }: ITodo) => {
   const buttonComponents: { [key in ButtonState]: ReactNode } = {
     menu: <img src={dropdownMenuIcon} alt="dropdown-menu-icon" />,
     alarm: <button>깨우기</button>, // 공통 컴포넌트 버튼 추가 예정
