@@ -25,27 +25,27 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-    },
-    'import/order': [
-      'error',
-      {
-        groups: [
-          ['builtin', 'external'],
-          ['internal'],
-          ['parent', 'sibling', 'index'],
-        ],
-        pathGroups: [
-          {
-            pattern: '@/**',
-            group: 'internal',
-            position: 'before',
+      'import/order': [
+        'error',
+        {
+          groups: [
+            ['builtin', 'external'],
+            ['internal'],
+            ['parent', 'sibling', 'index'],
+          ],
+          pathGroups: [
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
           },
-        ],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
         },
-      },
-    ],
+      ],
+    },
   },
 );
