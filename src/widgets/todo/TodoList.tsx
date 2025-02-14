@@ -36,7 +36,7 @@ export function TodoList() {
   );
 }
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
