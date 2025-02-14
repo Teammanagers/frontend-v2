@@ -1,26 +1,25 @@
 import styled from 'styled-components';
 import checkIcon from '@/shared/assets/icons/check.svg';
+import { IStatusBadge } from '@/widgets/todo/status.type';
 
 //진행 전, 진행 중, 완료 상태를 나타내는 배지 컴포넌트
 
-function StatusBadge({ status }: { status: string }) {
-  const statusCount = 10;
-
+function StatusBadge({ status }: { status: IStatusBadge }) {
   return (
     <Container>
-      <StatusLabel $status={status}>
-        {status === '진행중' ? (
+      <StatusLabel $status={status.title}>
+        {status.title === '진행중' ? (
           <ProceedingBarWrapper>
             <ProceedingBar />
           </ProceedingBarWrapper>
-        ) : status === '진행 전' || status === '완료' ? (
+        ) : status.title === '진행 전' || status.title === '완료' ? (
           <IconWrapper>
             <img src={checkIcon} alt="check icon" />
           </IconWrapper>
         ) : null}
-        {status}
+        {status.title}
       </StatusLabel>
-      <StatusCounter>{statusCount}</StatusCounter>
+      <StatusCounter>{status.count}</StatusCounter>
     </Container>
   );
 }
