@@ -44,7 +44,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const Container = styled.button<{ $todoStatus?: Status }>`
+const Container = styled.button<{ $todoStatus: Status }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,12 +64,13 @@ const Container = styled.button<{ $todoStatus?: Status }>`
   cursor: pointer;
 `;
 
-const IconWrapper = styled.div<{ $todoStatus?: Status }>`
+const IconWrapper = styled.div<{ $todoStatus: Status }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  opacity: ${({ $todoStatus }) => ($todoStatus === 'TODO' ? 0.7 : 1)};
   animation: ${fadeIn} 0.3s ease;
 `;
 
