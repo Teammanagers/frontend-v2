@@ -3,7 +3,7 @@ import { Dropdown } from '@/shared/components/dropdown/compound/Dropdown';
 import useToggle from '@/shared/components/dropdown/hooks/useToggle';
 import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
 
-export default function ActionDropdown() {
+function ActionDropdown() {
   const { isOpen, setIsOpen, toggle } = useToggle();
 
   return (
@@ -14,13 +14,15 @@ export default function ActionDropdown() {
 
       <Dropdown.Menu isOpen={isOpen} top="10px" left="-50%">
         <MenuWrapper>
-          <MenuItem onClick={toggle}>수정</MenuItem>
-          <MenuItem onClick={toggle}>삭제</MenuItem>
+          <ModifyButton onClick={toggle}>수정</ModifyButton>
+          <DeleteButton onClick={toggle}>삭제</DeleteButton>
         </MenuWrapper>
       </Dropdown.Menu>
     </Dropdown>
   );
 }
+
+export { ActionDropdown };
 
 const MenuWrapper = styled.div`
   display: flex;
@@ -46,4 +48,15 @@ const MenuWrapper = styled.div`
   }
 `;
 
-const MenuItem = styled.button``;
+const MenuItem = styled.button`
+  font-size: 10px;
+  font-weight: 400;
+`;
+
+const ModifyButton = styled(MenuItem)`
+  color: #1d1d1d;
+`;
+
+const DeleteButton = styled(MenuItem)`
+  color: #ff0000;
+`;

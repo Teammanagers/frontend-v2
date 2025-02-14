@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import dropdownMenuIcon from '@/shared/assets/common/dropdown-menu.svg';
 import { ButtonState, ITodo } from '../todo.type';
+import { Button } from './Button';
+import { TodoStatus } from './TodoStatus';
+import { ActionDropdown } from './ActionDropdown';
 
 /**
  * Todo 컴포넌트는 할 일 항목을 렌더링합니다.
@@ -10,10 +12,10 @@ import { ButtonState, ITodo } from '../todo.type';
  * @param {ButtonState} buttonState - 버튼의 상태를 나타내는 값 ('menu', 'alarm', 'none').
  */
 
-export const Todo = ({ children, buttonState }: ITodo) => {
+function Todo({ children, buttonState }: ITodo) {
   const buttonComponents: { [key in ButtonState]: ReactNode } = {
-    menu: <img src={dropdownMenuIcon} alt="dropdown-menu-icon" />,
-    alarm: <button>깨우기</button>, // 공통 컴포넌트 버튼 추가 예정
+    menu: <ActionDropdown />,
+    alarm: <Button>깨우기</Button>,
     none: null,
   };
 
@@ -21,7 +23,7 @@ export const Todo = ({ children, buttonState }: ITodo) => {
     <TodoContainer>
       <InnerWrapper>
         <ContentWrapper>
-          <Checkbox />
+          <TodoStatus />
           <Content>{children}</Content>
         </ContentWrapper>
 
@@ -29,7 +31,9 @@ export const Todo = ({ children, buttonState }: ITodo) => {
       </InnerWrapper>
     </TodoContainer>
   );
-};
+}
+
+export { Todo };
 
 const TodoContainer = styled.li`
   display: flex;
@@ -58,11 +62,4 @@ const ContentWrapper = styled.div`
 
 const Content = styled.p`
   margin: 0;
-`;
-
-const Checkbox = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
-  background-color: #f2f2f2;
 `;
