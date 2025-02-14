@@ -40,7 +40,8 @@ const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 900px;
+  min-width: 900px;
+  width: 70vw;
   height: 552px;
   padding: 32px 0;
   box-sizing: border-box;
@@ -52,13 +53,17 @@ const Container = styled.section`
 const TodosWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
   row-gap: 36px;
   column-gap: 24px;
   box-sizing: border-box;
 
+  // width: 88%;
   width: 788px;
-  min-height: 456px;
-  max-height: auto;
+  margin: 0 auto;
+
+  @media (min-width: 1920px) {
+    width: 1194px;
+  }
 `;

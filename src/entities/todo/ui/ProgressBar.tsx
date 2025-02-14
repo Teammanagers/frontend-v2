@@ -17,7 +17,8 @@ export { ProgressBar };
 
 const Container = styled.section`
   display: flex;
-  width: 900px;
+  width: 100%;
+
   height: 12px;
   border-radius: 76px;
 `;
