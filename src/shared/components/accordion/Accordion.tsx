@@ -26,7 +26,11 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           title={title}
           tagList={tagList}
         />
-        <AccordionBody parentRef={parentRef} childRef={childRef}>
+        <AccordionBody
+          isOpen={isOpen}
+          parentRef={parentRef}
+          childRef={childRef}
+        >
           {children}
         </AccordionBody>
       </AccordionContainer>
