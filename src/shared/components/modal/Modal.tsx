@@ -1,16 +1,20 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { IModal } from '@/shared/types/modal.types';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes } from 'styled-components';
 
-interface ModalProps {
-  children: ReactNode;
-  isOpen: boolean;
-  toggle: () => void;
-}
+/**
+ * Modal 컴포넌트는 모달을 렌더링합니다.
+ *
+ * @param {boolean} isOpen - 모달이 열려 있는지 여부를 나타내는 상태
+ * @param {() => void} toggle - 모달의 열림/닫힘 상태를 토글하는 훅
+ * @param {ReactNode} children - 모달의 내용
+ */
 
-export default function Modal({ children, isOpen, toggle }: ModalProps) {
+export default function Modal({ children, isOpen, toggle }: IModal) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
+  // 모달 열고 닫는 기본 로직
   useEffect(() => {
     if (isOpen) {
       dialogRef.current?.showModal();
@@ -20,7 +24,7 @@ export default function Modal({ children, isOpen, toggle }: ModalProps) {
     } else {
       const timer = setTimeout(() => {
         dialogRef.current?.close();
-      }, 200); // 애니메이션 시간과 동일하게 설정
+      }, 200); // 애니메이션 시간보다 조금 더 빠르게
 
       return () => clearTimeout(timer);
     }
