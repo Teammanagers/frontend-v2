@@ -12,6 +12,7 @@ export function ModalTestPage() {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalWrapper>
           <p>hi</p>
+          <ClosedBtn onClick={toggle}>close</ClosedBtn>
         </ModalWrapper>
       </Modal>
     </div>
@@ -19,6 +20,13 @@ export function ModalTestPage() {
 }
 
 const ModalWrapper = styled.div`
+  position: relative;
   width: 552px;
   height: 168px;
+`;
+
+const ClosedBtn = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
