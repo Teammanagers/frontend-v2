@@ -1,57 +1,6 @@
 import styled from 'styled-components';
-
-interface ButtonStyle {
-  backgroundColor: string;
-  textColor: string;
-  hoverBackgroundColor?: string;
-  borderColor?: string;
-}
-
-interface ButtonProps {
-  size: keyof typeof buttonSizes;
-  style: keyof typeof buttonStyles;
-  children: React.ReactNode;
-  onClick?: () => void;
-  disabled?: boolean;
-  icon?: React.ReactNode;
-}
-
-// 크기
-const buttonSizes = {
-  tiny: { width: 28, height: 24, fontSize: 10 },
-  mini: { width: 96, height: 36, fontSize: 12 },
-  small: { width: 158, height: 36, fontSize: 12 },
-  medium: { width: 332, height: 36, fontSize: 12 },
-  large: { width: 350, height: 48, fontSize: 16 },
-  long: { width: 472, height: 36, fontSize: 12 },
-  xl: { width: 472, height: 48, fontSize: 16 },
-  xxl: { width: 664, height: 48, fontSize: 16 },
-};
-
-// 스타일
-const buttonStyles: Record<string, ButtonStyle> = {
-  main: {
-    backgroundColor: '#5C9EFF',
-    textColor: '#FFFFFF',
-    hoverBackgroundColor: '#3C8BFF',
-  },
-  sub: {
-    backgroundColor: '#FFFFFF',
-    textColor: '#5C9EFF',
-    hoverBackgroundColor: '#DDEBFF',
-    borderColor: '#5C9EFF',
-  },
-  red: {
-    backgroundColor: '#FFFFFF',
-    textColor: '#FF0000',
-    hoverBackgroundColor: '#FFE9E9',
-    borderColor: '#FF0000',
-  },
-  disabled: {
-    backgroundColor: '#CCCCCC',
-    textColor: '#FFFFFF',
-  },
-};
+import { IButtonProps } from './button.types.ts';
+import { buttonSizes, buttonStyles } from './button.constants.ts';
 
 export const Button = ({
   size,
@@ -60,7 +9,7 @@ export const Button = ({
   onClick,
   disabled = false,
   icon,
-}: ButtonProps) => {
+}: IButtonProps) => {
   const selectedSize = buttonSizes[size];
   const selectedStyle = buttonStyles[style];
 
